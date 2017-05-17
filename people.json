@@ -1,0 +1,19 @@
+[
+    {
+        "first": "warren",
+        "last":"scantlebury",
+        "occup":"developer"
+    },
+
+    {
+        "first": "fank",
+        "last":"white",
+        "occup":"developer"
+    },
+    {
+        "first": "james",
+        "last":"fred",
+        "occup":"developer"
+    }
+
+]
