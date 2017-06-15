@@ -1,0 +1,317 @@
+<!-- views/premium.ejs -->
+<style type="text/css" media="all">
+body {
+    background-color: #9E9E9E;
+    background-position: top center;
+    background-repeat: repeat-y;
+    margin: 0;
+    padding: 0;
+    font-family: arial,sans-serif;
+}
+#message h1 {
+    font-family: georgia, sans-serif;
+    font-weight: normal;
+    font-style: italic;
+}
+#message h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: #006699;
+}
+#message .red {
+    color: #ff0000;
+}
+#message .clear {
+    clear: both;
+}
+#message a {
+    text-decoration: none;
+}
+#message a img {
+    border: none;
+}
+#message td.mainbar p {
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: normal;
+    color: #4c4c4c;
+    margin: 10px 0 0 0;
+    padding: 0;
+    margin: 0px 70px;
+}
+#message td.mainbar p a {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    color: #00a4d1;
+}
+#message table.main {
+    padding-bottom: 20px;
+    background-color: #F8F8F8;
+}
+#message .main h1 {
+    color: #4c4c4c;
+    font-family: Arial;
+    font-size: 35px;
+    font-weight: normal;
+    margin: 10px 15px 0 15px;
+    margin-left: 70px;
+}
+#message .logoContainer {
+    background-color: #D83030;
+}
+#message .Logo_Text {
+    font-size: 26px;
+    color: black;
+    height: 60px;
+    text-align: left;
+}
+#message .cancel_footer td {
+    color: black !important;
+    background-color: #d3d3d3;
+    line-height: 1.2;
+}
+#message .cancel_footer td a {
+    color: #30A0D8 !important;
+}
+#message .alignCenter {
+    text-align:center;
+}
+#message p.bigger strong {
+    font-size: 20px;
+}
+#message p.bigger b {
+    font-size: 18px;
+}
+.userInfos p {
+    margin: 0 !important;
+}
+.social-td {
+    text-align: center;
+}
+.social-links{
+    display: inline-block;
+    text-align: justify;
+    width: 100%;
+    padding: 0;
+}
+.social-links div{
+    display: inline-block;
+    height: 32px;
+    width: 132px;
+    margin: 0 5px;
+}
+.social-links div a{
+    text-decoration: none;
+    display: block;
+    height: 32px;
+    width: 32px;
+}
+</style>
+<table width="100%" cellspacing="10" cellpadding="0" id="message">
+   <tr>
+      <td align="center" valign="top">
+         <table width="750" border="0" cellspacing="0" cellpadding="0" style="height: 30px !important;">
+             <thead>
+                <tr style="height: 30px !important;">
+                   <td class="logoContainer" style="width: 60px;">
+                        <img class="Logo_Image" src="__LOGO_IMAGE_SRC__" alt="Logo <%= $site_name %>"/>
+                   </td>
+                   <td class="logoContainer" style="color:#000;">
+                        <span class="Logo_Text"><%= $site_name %></span>
+                   </td>
+                </tr>
+            </thead>
+         </table>
+         <table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
+            <tbody>
+                <tr align="left" valign="top">
+                    <td width="600" valign="top" class="mainbar" align="left">
+                        <br />
+                        <br />
+                        <br />
+                        <h1>Premium Confirmation</h1>
+                        <br />
+
+                        <% if ($extra_message !== "") { %>
+                          <p><%= $extra_message %></p>
+                          <br />
+                        <% } %>
+
+                        <p>Thank you for joining <%= $site_name %> Premium Membership.</p>
+                        <% if ($is_aw) { %>
+                          <p>Please note that all transactions will appear as "<%= $descriptor %>" on your credit card statement."</p>
+                        <% } %>
+                        <table class="userInfos" width="750" border="0" cellspacing="0" cellpadding="15" style="font: 13px/20px arial,sans-serif;color:#333;margin-top:10px;">
+                            <tr>
+                                <td width="230" valign="top" style="padding-left: 80px;">
+                                    <p><strong>Account Information:</strong></p>
+                                    <p>First Name: <%= $first_name %></p>
+                                    <p>Last Name: <%= $last_name %></p>
+                                    <p>Username: <%= $email %></p>
+                                    <p>Password: <%= $password %></p>
+                                    <p>Member Since: <%= $date %></p>
+                                    <p>Ref. Number: <strong>0832 - 84 - <%= $member_id %></strong></p>
+                                </td>
+                                <td width="220" valign="top">
+                                    <p><strong>Billing Information:</strong></p>
+                                    <p>Billing date: <%= $date %></p>
+                                    <p>Card Type: <%= $card_type %></p>
+                                    <p>Expiration Date: <%= $card_expiration_date %></p>
+                                    <p>Zip Code: <%= $zip_code %></p>
+                                    <p>Country: <%= $country_code %><br /></p>
+                                    <p>Order total: <strong><%= $order_total %></strong></p>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <table width="600" border="0" cellspacing="0" cellpadding="2" style="font: 13px/20px arial,sans-serif;color:#333; margin-left: 80px;">
+                            <tr>
+                                <td width="300" style="background-color:#f9f9f9;">
+                                    <strong>Membership Description</strong>
+                                </td>
+                                <td width="125" style="background-color:#f9f9f9;">
+                                    <strong>Member Type</strong>
+                                </td>
+                                <td width="125" style="background-color:#f9f9f9;">
+                                    <strong>Unit</strong>
+                                </td>
+                                <td width="100" style="background-color:#f9f9f9;">
+                                    <strong>Unit Cost</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <%= $membership_name %><br />
+                                </td>
+                                <td valign="top">
+                                    <%= $membership_type %>
+                                </td>
+                                <td valign="top">
+                                    <%= $unit %><br />
+                                    <span style="font-size:10px;color:#777;">Recurring Transaction</span>
+                                </td>
+                                <td valign="top">
+                                    <%= $initial_amount %>
+                                </td>
+                            </tr>
+                            <% if ($unicef_charged == true) { %>
+                              <tr>
+                                  <td valign="top">
+                                      Unicef Donation<br />
+                                  </td>
+                                  <td valign="top">None</td>
+                                  <td valign="top">1 Time</td>
+                                  <td valign="top">
+                                      <%= $currency_symbol %>1.00
+                                  </td>
+                              </tr>
+                            <% } %>
+                            <tr>
+                                <td valign="top">&nbsp;
+
+                                </td>
+                                <td valign="top">&nbsp;
+
+                                </td>
+                                <td align="right" valign="top">
+                                    Subtotal:<br />
+                                    Tax:<br />
+                                    <strong>TOTAL:</strong><br />
+                                </td>
+                                <td valign="top">
+                                    <%= $subtotal %><br />
+                                    <%= $currency_symbol %>0.00<br />
+                                    <strong><%= $total %></strong><br />
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="750" border="0" cellspacing="0" cellpadding="0" style="font: 13px/18px arial,sans-serif;color:#333;">
+                            <tr>
+                                <td>
+                                    <table width="750" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td style="width: 40%; height: 50px;">&nbsp;</td>
+                                            <td style="width: 20%; height: 50px; text-align:center; background-color: #069;color: white;font-weight: bold;font-size: 17px;font-family: Arial;border-radius: 5px;margin-bottom: 20px;">
+                                                <br />
+                                                <a href="__LOGIN_LINK__" target="_blank">
+                                                    <font style="color: white;">LOGIN</font>
+                                                </a>
+                                            </td>
+                                            <td style="width: 40%; height: 50px;">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="750" border="0" cellspacing="0" cellpadding="10" style="font: 13px/18px arial,sans-serif;color:#333;">
+                            <tr>
+                                <td style="line-height:22px;">
+                                    <p class="alignCenter"><strong>QUESTIONS OR COMMENTS?</strong></p>
+                                    <br />
+                                    <p class="alignCenter">For frequently asked questions, visit: <a href="http://www.<%= $domain_name %>/support" target="_blank" style="color:#006699;text-decoration:none;"><%= $site_name %> Customer support center</a></p>
+                                    <br />
+                                    <% if ($phone != $secondary_phone) { %>
+                                        <p class="alignCenter bigger"><b><%= $phone %></b></p>
+                                        <br />
+                                        <p class="alignCenter bigger"><b><%= $secondary_phone %></b></p>
+                                    <% } else { %>
+                                        <p class="alignCenter bigger"><b><%= $phone %></b></p>
+                                    <% } %>
+                                    <br />
+                                    <p class="alignCenter">See our complete <a href="__TERMS_CONDITIONS_LINK__" target="_blank" style="color:#006699;text-decoration:none;">Terms of Use</a>and<a href="__PRIVACY_CONDITIONS_LINK__" target="_blank" style="color:#006699;text-decoration:none;">Privacy Policy</a></p>
+                                    <br />
+                                    <p class="alignCenter"><em>Please retain this email for your records.</em></p>
+                                    <br />
+                                    <p class="alignCenter">Enjoy your games!</p>
+                                    <p class="alignCenter"><a href="http://www.<%= $domain_name %>" target="_blank" style="color:#006699;text-decoration:none;"><em>The <%= $site_name %> Team</em></a></p>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table width="750" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <table width="750" cellspacing="0" cellpadding="10" class="cancel_footer">
+                        <tr>
+                            <td width="33%">
+                                <p>Talk to you soon!</p>
+                            </td>
+                            <td width="33%" class="social-td">
+                                <% if ($isHighTrafficSite) { %>
+                                <div>
+                                    <% if ($facebookLinkAvailable) { %>
+                                    <div>
+                                        <p>Join us on <a href="__FACEBOOK_LINK__" target="_blank">Facebook</a></p>
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <% } %>
+                            </td>
+                            <td width="33%" style="text-align:right;">
+                                <p><%= $site_name %> Support Staff</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+              <td align="center" style="font:normal 11px arial; color:#222222;">
+                  &copy; <%= $site_name %>, 2017 &middot;
+                  <a href="http://www.<%= $domain_name %>/support" style="color:#006699;text-decoration:none;" target="_blank">Support</a> &middot;
+                  <a href="__TERMS_CONDITIONS_LINK__" style="color:#006699;text-decoration:none;" target="_blank">Terms</a> &middot;
+                  <a href="__PRIVACY_CONDITIONS_LINK__" style="color:#006699;text-decoration:none;" target="_blank">Privacy Policy</a><br />
+              </td>
+            </tr>
+        </table>
+      </td>
+   </tr>
+
+
+</table>

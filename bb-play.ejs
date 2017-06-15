@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Thank you for registering</title>
+    <style type="text/css" media="all">
+    body {
+        background-color: #9E9E9E;
+        background-position: top center;
+        background-repeat: repeat-y;
+        margin: 0;
+        padding: 0;
+        font-family: arial, sans-serif;
+    }
+    
+    #message h1 {
+        font-family: georgia, sans-serif;
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+    #message h3 {
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        color: #006699;
+    }
+    
+    #message .red {
+        color: #ff0000;
+    }
+    
+    #message .clear {
+        clear: both;
+    }
+    
+    #message a {
+        text-decoration: none;
+    }
+    
+    #message a img {
+        border: none;
+    }
+    
+    #message td.mainbar p {
+        font-family: Arial;
+        font-size: 17px;
+        font-weight: normal;
+        color: #4c4c4c;
+        margin: 10px 0 0 0;
+        padding: 0;
+        margin: 0px 70px;
+    }
+    
+    #message td.mainbar p a {
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: normal;
+        color: #00a4d1;
+    }
+    
+    #message table.main {
+        padding-bottom: 20px;
+        background-color: #F8F8F8;
+    }
+    
+    #message .main h1 {
+        color: #4c4c4c;
+        font-family: Arial;
+        font-size: 35px;
+        font-weight: normal;
+        margin: 10px 15px 0 15px;
+        margin-left: 70px;
+    }
+    
+    #message .logoContainer {
+        background-color: #D83030;
+    }
+    
+    #message .Logo_Text {
+        font-size: 26px;
+        color: black;
+        height: 60px;
+        text-align: left;
+    }
+    
+    #message .cancel_footer td {
+        color: black !important;
+        background-color: #d3;
+        line-height: 1.2;
+    }
+    
+    #message .cancel_footer td a {
+        color: #30A0D8 !important;
+    }
+    
+    #message .alignCenter {
+        text-align: center;
+    }
+    
+    #message p.bigger strong {
+        font-size: 20px;
+    }
+    
+    #message p.bigger b {
+        font-size: 18px;
+    }
+    
+    .userInfos p {
+        margin: 0 !important;
+    }
+    </style>
+</head>
+
+<body>
+    <table width="100%" cellspacing="10" cellpadding="0" id="message">
+        <tr>
+            <td align="center" valign="top">
+                <table width="750" border="0" cellspacing="0" cellpadding="0" style="height: 30px !important;">
+                    <thead>
+                        <tr style="height: 30px !important;">
+                            <td class="logoContainer" style="width: 60px;">
+                                <img class="Logo_Image" src="https://www.bb-play.com/uploads/bb-play.png" alt="Logo BB-play.com" />
+                            </td>
+                            <td class="logoContainer" style="color:#000;">
+                                <span class="Logo_Text">BB-play.com</span>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+                <table width="750" border="0" cellspacing="0" cellpadding="0" class="main">
+                    <tbody>
+                        <tr align="left" valign="top">
+                            <td width="600" valign="top" class="mainbar" align="left">
+                                <br>
+                                <br>
+                                <br>
+                                <h1>Trial Confirmation</h1>
+                                <br>
+                                <% if (global.extramessage) {%>
+                                    <p>
+                                        <%= extramessage %>
+                                    </p>
+                                    <br>
+                                    <%  } %>
+                                        <p>Thank you for joining BB-play.com Trial Membership.</p>
+                                        <p>Please note that all transactions will appear as "bb-play.com18777470005" on your credit card statement."</p>
+                                        <table class="userInfos" width="750" border="0" cellspacing="0" cellpadding="15" style="font: 13px/20px arial,sans-serif;color:#333;margin-top:10px;">
+                                            <tr>
+                                                <td width="230" valign="top" style="padding-left: 80px;">
+                                                    <p><strong>Account Information:</strong></p>
+                                                    <p>First Name:
+                                                        <%= userFirstName %>
+                                                    </p>
+                                                    <p>Last Name:
+                                                        <%= userLastName %>
+                                                    </p>
+                                                    <p>Username:
+                                                        <%= userEmail %>
+                                                    </p>
+                                                    <p>Password: ******
+                                                    </p>
+                                                    <p>Member Since:
+                                                        <%= userMemStartDate %>
+                                                    </p>
+                                                    <p>Ref. Number: <strong>0832 - 84 - <%=memberId%></strong></p>
+                                                </td>
+                                                <td width="220" valign="top">
+                                                    <p><strong>Billing Information:</strong></p>
+                                                    <p>Billing date:
+                                                        <%=billingDate%>
+                                                    </p>
+                                                    <p>Card Type:
+                                                        <%=cardType%>
+                                                    </p>
+                                                    <p>Expiration Date:
+                                                        <%=cardExpirationDate%>
+                                                    </p>
+                                                    <p>Country:
+                                                        <%=userCountryCode%>
+                                                            <br />
+                                                    </p>
+                                                    <p>Order total: <strong>$<%= parseFloat(userMembershipPrice) + (global.unicefCharged == true) ? 1 : 0; %></strong></p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        <table width="600" border="0" cellspacing="0" cellpadding="2" style="font: 13px/20px arial,sans-serif;color:#333; margin-left: 80px;">
+                                            <tr>
+                                                <td width="300" style="background-color:#f9f9f9;">
+                                                    <strong>Membership Description</strong>
+                                                </td>
+                                                <td width="125" style="background-color:#f9f9f9;">
+                                                    <strong>Member Type</strong>
+                                                </td>
+                                                <td width="125" style="background-color:#f9f9f9;">
+                                                    <strong>Unit</strong>
+                                                </td>
+                                                <td width="100" style="background-color:#f9f9f9;">
+                                                    <strong>Unit Cost</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top">
+                                                    *
+                                                    <%= userMembershipName %>
+                                                        <br />
+                                                </td>
+                                                <td valign="top">
+                                                    <%= (global.userMembershipType) ? userMembershipType : "Premium" %>
+                                                </td>
+                                                <td valign="top">
+                                                    <%= userMembershipRebillPeriod %>
+                                                        <br />
+                                                        <%= (global.isRecurring == true) ? "Recurring Transaction" : "" %>
+                                                </td>
+                                                <td valign="top">
+                                                    $0
+                                                </td>
+                                            </tr>
+                                            <% if (global.unicefCharged == true) { %>
+                                                <tr>
+                                                    <td valign="top">
+                                                        Unicef Donation
+                                                        <br />
+                                                    </td>
+                                                    <td valign="top">None</td>
+                                                    <td valign="top">1 Time</td>
+                                                    <td valign="top">
+                                                        $1
+                                                    </td>
+                                                </tr>
+                                                <% } %>
+                                                    <tr>
+                                                        <td valign="top">&nbsp;
+                                                        </td>
+                                                        <td valign="top">&nbsp;
+                                                        </td>
+                                                        <td align="right" valign="top">
+                                                            Subtotal:
+                                                            <br /> Tax:
+                                                            <br />
+                                                            <strong>TOTAL:</strong>
+                                                            <br />
+                                                        </td>
+                                                        <td valign="top">
+                                                            $<%=parseFloat(userMembershipInitialPrice) + (global.unicefCharged == true ? 1 : 0)%>
+                                                                <br /> $<%= userMembershipInitialPrice%>
+                                                                <br />
+                                                                <strong>$<%= parseFloat(userMembershipInitialPrice) + ((global.unicefCharged == true) ? 1 : 0)%></strong>
+                                                                <br />
+                                                        </td>
+                                                    </tr>
+                                        </table>
+                                        <table width="750" border="0" cellspacing="0" cellpadding="0" style="font: 13px/18px arial,sans-serif;color:#333;">
+                                            <tr>
+                                                <td>
+                                                    <table width="750" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td style="width: 40%; height: 50px;">&nbsp;</td>
+                                                            <td style="width: 20%; height: 50px; text-align:center; background-color: #069;color: white;font-weight: bold;font-size: 17px;font-family: Arial;border-radius: 5px;margin-bottom: 20px;">
+                                                                <br>
+                                                                <a href="http://members.bb-play.com/login" target="_blank">
+                                                                    <font style="color: white;">LOGIN</font>
+                                                                </a>
+                                                            </td>
+                                                            <td style="width: 40%; height: 50px;">&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table width="750" border="0" cellspacing="0" cellpadding="10" style="font: 13px/18px arial,sans-serif;color:#333;">
+                                            <tr>
+                                                <td style="line-height:22px;">
+                                                    <p class="alignCenter"><strong>QUESTIONS OR COMMENTS?</strong></p>
+                                                    <br>
+                                                    <p class="alignCenter">For frequently asked questions, visit: <a href="http://bb-play.com/support" target="_blank" style="color:#006699;text-decoration:none;">BB-play Customer support center</a></p>
+                                                    <br>
+                                                    <p class="alignCenter bigger"><b>Primary #: 1-877-747-0005</b></p>
+                                                    <br>
+                                                    <p class="alignCenter bigger"><b>Secondary #: 1-302-722-4141</b></p>
+                                                    <br>
+                                                    <p class="alignCenter">See our complete <a href="http://www.bb-play.com/terms" target="_blank" style="color:#006699;text-decoration:none;">Terms of Use</a> and <a href="http://www.bb-play.com/privacy" target="_blank" style="color:#006699;text-decoration:none;">Privacy Policy</a></p>
+                                                    <br>
+                                                    <p class="alignCenter"><em>Please retain this email for your records.</em></p>
+                                                    <br>
+                                                    <p class="alignCenter">Enjoy your games!</p>
+                                                    <p class="alignCenter"><a href="http://www.bb-play.com" target="_blank" style="color:#006699;text-decoration:none;"><em>The BB-play Team</em></a></p>
+                                                    <br/>
+                                                    <br/>
+                                                    <span style="font-size:10px;color:#777; margin:0px 90px; display: block;">* <%= userMembershipName %> Details: You are currently signed up to a <%= userMembershipName %> (Expires <%= userMemRebillDate %>). If you are satisfied with BB-play Premium, your membership will automatically renew at <%= userMembershipPrice %> per month after your trial expires. You can easily switch to a Regular membership at any time during your trial by visiting BB-play Support or by calling us at 1-877-747-0005 / 1-302-722-4141. Please review the <a href="http://www.bb-play.com/terms" style="color:#006699;text-decoration:none;" target="_blank">terms and conditions</a> during your trial.</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        <br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="750" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                            <table width="750" cellspacing="0" cellpadding="10" class="cancel_footer">
+                                <tr>
+                                    <td width="50%">
+                                        <p>Talk to you soon!</p>
+                                    </td>
+                                    <td width="50%" style="text-align:right;">
+                                        <p>
+                                            BB-play.com Support Staff</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <tr>
+                    <td align="center" style="font:normal 11px arial; color:#222222;">
+                        &copy; BB-Play, 2016 &middot;
+                        <a href="http://link.letsplayventures.com/c/280/833f4f07f9b5aaba8d798baf0dacf41aa63255d436309409d7bc44d0adea1b3748d4e51f72dbee06" style="color:#006699;text-decoration:none;" target="_blank">Support</a> &middot;
+                        <a href="http://link.letsplayventures.com/c/280/833f4f07f9b5aaba8d798baf0dacf41aa63255d436309409d7bc44d0adea1b37564a5991dcc6513b" style="color:#006699;text-decoration:none;" target="_blank">Terms</a> &middot;
+                        <a href="http://link.letsplayventures.com/c/280/833f4f07f9b5aaba8d798baf0dacf41aa63255d436309409d7bc44d0adea1b3768e12fe5bda3bbda" style="color:#006699;text-decoration:none;" target="_blank">Privacy Policy</a>
+                        <br />
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td width="600" valign="top" align="center" style="font: 11px/17px arial,sans-serif;color:#333;">
+                        <strong>* Membership Details:</strong> Your
+                        <%= userMembershipName %> is free. If you would like to update your membership options, please visit <a href="http://link.letsplayventures.com/c/280/833f4f07f9b5aaba8d798baf0dacf41aa63255d436309409d7bc44d0adea1b37cda503fe03998e69" style="color:#006699;text-decoration:none;" target="_blank">BB-Play Support</a> or call <strong>1-877-747-0005</strong> (US and Canada) / <strong>1-302-722-4141</strong> .
+                            <br />
+                    </td>
+                </tr>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

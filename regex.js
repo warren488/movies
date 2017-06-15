@@ -1,5 +1,6 @@
 var fs = require("fs");
-var file = "trial_base(d-site).ejs"
+var file = "trial_base(d-site).ejs";
+var file = "bb-play.ejs";
 var cluster = require('cluster');
 var plain = /<%=\s*[a-z_]{1,}\s*%>/g;
 // var hidden = /<%\s*[A-Za-z_$()&\s]*\s*%>/g;
@@ -28,6 +29,7 @@ fs.readFile(file, 'utf8', function (err,data) {
 
 
 myarr = str.match(plain);
+console.log(myarr);
 variables = [];
 
 
@@ -39,6 +41,9 @@ myarr.forEach(function(element) {
     if(variables.indexOf(element) != 1)
     variables.push(element);
 });
+
+
+
 
 console.log(variables);
 
