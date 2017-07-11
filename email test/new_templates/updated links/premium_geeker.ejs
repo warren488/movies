@@ -1,4 +1,4 @@
-<!-- views/trial_geeker.ejs -->
+<!-- views/premium_geeker.ejs -->
 <style type="text/css">
 
     body, table.body, h1, h2, h3, h4, h5, h6, p, td {
@@ -171,7 +171,7 @@
         <td align="center" valign="top">
             <table align="center" class="em_main_table" width="650" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;" bgcolor="#ffffff">
                 <tr>
-                    <td class="em_hide" style="line-height:1px;min-width:650px;" bgcolor="#ffffff"><img src="http://www.emailonacid.com/images/emails/emailmonks1/spacer.gif" height="1"  width="650" style="max-height:1px; min-height:1px; display:block; width:650px; min-width:650px;" border="0" /></td>
+                    <td class="em_hide" style="line-height:1px;min-width:650px;" bgcolor="#ffffff"><img src="<%= $image1 %>" height="1"  width="650" style="max-height:1px; min-height:1px; display:block; width:650px; min-width:650px;" border="0" /></td>
                 </tr>
                 <!-- ===== HEADER SECTION ===== -->
                 <tr>
@@ -195,13 +195,13 @@
                                                                 <tr>
                                                                     <td>
                                                                         <a href="__GEEKER_SITE_LINK__" target="_blank">
-                                                                            <img src="http://www.<%= $domain_name %>/images/emails/geeker-logo.png" alt="Logo" width="95" height="26" style="display:block;" border="0"/>
+                                                                            <img src="<%= $logo_url %>" alt="Logo" width="95" height="26" style="display:block;" border="0"/>
                                                                         </a>
                                                                     </td>
                                                                 </tr>
                                                             </table>
                                                         </td>
-                                                        <td height="21" valign="middle" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;text-align:right;color:#414141;letter-spacing:1px;">Call us: <%= $phone %> (US)</td>
+                                                        <td height="21" valign="middle" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;text-align:right;color:#414141;letter-spacing:1px;">Call us: <%= $phone %></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -225,55 +225,19 @@
                     <td>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%">
                             <tr>
-                                <td background="http://www.<%= $domain_name %>/images/emails/headerbg.jpg" bgcolor="#cec0b5" valign="top">
-                                    <!--[if gte mso 9]>
-                                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;">
-                                        <v:fill type="tile" src="http://www.<?=$member->site->domain_name ?>/images/emails/headerbg.jpg" color="#cec0b5" />
-                                        <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
-                                    <![endif]-->
-                                    <div>
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                            <!--     <tr>
-                                                  <td height="80" class="em_height_80">&nbsp;</td>
-                                                </tr> -->
-                                            <tr>
-                                                <td class="em_side_space" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:30px;text-align:left;line-height:34px;color:#414141; padding-top: 40px; padding-left: 20px;"><span style="font-weight:600; font-family:'Open Sans',Arial,sans-serif!important;">Hi <%= $first_name %>,</span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td width="50%" class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:16px;text-align:left;color:#313131;line-height:24px; padding: 30px 0 20px 20px; ">
-                                                    Welcome to the growing <%= $site_name %> family! You're all set to <a href="__LOGIN_LINK__" style="text-decoration: underline !important; color:#00C19B !important;">start enjoying unlimited entertainment</a>.
-                                                </td>
-                                                <!-- Extra col neededfor first one to be 50%w -->
-                                                <td width="325" height="20">&nbsp;</td>
-                                            </tr>
-                                            <tr><td>&nbsp;</td></tr>
-                                        </table>
-
-
-
-                                        <!-- LOGIN BUTTON -->
-                                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                            <tr>
-
-                                                <td class="em_white_link" width="200" valign="middle" height="80">
-                                                    <table width="200" style="background-color: #00C19B; color: #fff !important; border-collapse: separate; display: table; border-spacing: 5px;">
-                                                        <tr style="display: table-row">
-                                                            <td style="padding: 5px; display: table-cell">
-                                                                <a href="__LOGIN_LINK__" target="_blank" style="font-family:'Open Sans',Arial,sans-serif!important; font-size:18px;font-weight:600;color:#ffffff;letter-spacing:1px;text-decoration:none;text-align:center;color:#ffffff !important;display:block; width:200px;height:30px; text-align: center; line-height: 30px;border-radius:3px;">
-                                                                    Log In
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                                <!-- Needed for proper btn width -->
-                                                <td style="clear: both"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                <td class="em_dark_grey_txt" style="font-size:24px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Premium Upgrade Confirmation
                                 </td>
+
                             </tr>
+
+                            <tr>
+                                <td class="em_dark_grey_txt" style="font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Thank you for joining Geeker
+                                </td>
+
+                            </tr>
+
                         </table>
                     </td>
                 </tr>
@@ -282,13 +246,157 @@
                 <!-- ===== //BILLING INFO ===== -->
                 <tr>
                     <td>
+                        <table width="100%" style="margin-top: 20px;" bgcolor="#FFFFFF">
+                            <tr>
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Accounting Information:
+                                </td>
+
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Billing Information:
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    First Name: <span style="font-weight:400;"><%= $first_name %></span>
+                                </td>
+
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Billing Date: <span style="font-weight:400;"><%= $billing_date %></span>
+                                </td>
+
+                            </tr>
+
+                            <tr style="padding: 16px 0 16px 20px;">
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Last Name: <span style="font-weight:400;"><%= $last_name %></span>
+                                </td>
+
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Card Type: <span style="font-weight:400;"><%= $card_type %></span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Email: <span style="font-weight:400;"><%= $email %></span>
+                                </td>
+
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Expiration Date: <span style="font-weight:400;"><%= $card_expiration_date %></span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Password: <span style="font-weight:400;"><%= $password %></span>
+                                </td>
+
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Zip Code: <span style="font-weight:400;"><%= $zip_code %></span>
+                                </td>
+
+                            </tr>
+
+                            <tr style="padding: 16px 0 16px 20px;">
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Member Since: <span style="font-weight:400;"><%= $join_date %></span>
+                                </td>
+
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Country: <span style="font-weight:400;"><%= $country_code %></span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Ref. Number: <span style="font-weight:400;">0832 - 84 - <%= $member_id %></span>
+                                </td>
+
+                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:400;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
+                                    Order Total: <span style="font-weight:400;">$<%= $order_total %></span>
+                                </td>
+                            </tr>
+
+                            <tr><td>&nbsp;</td></tr>
+                            <tr><td>&nbsp;</td></tr>
+
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td>
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr bgcolor="#EFEFEF">
-                                            <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:18px;font-weight:600;text-align:left;color:#313131;line-height:24px; padding: 8px 0 8px 20px; ">
-                                              Billing Info
+                                            <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 8px 0 8px 20px; ">
+                                                Membership Description</td>
+
+                                            <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 8px 0 8px 20px; ">
+                                                Member Type</td>
+
+                                            <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 8px 0 8px 20px; ">
+                                                Unit</td>
+
+                                            <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 8px 0 8px 20px; ">
+                                                Unit Cost</td>
+                                        </tr>
+
+                                        <tr>
+                                          <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">
+                                              *<%= $membership_name %><br />
+                                          </td>
+                                          <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">
+                                              <%= $membership_type %>
+                                          </td>
+                                          <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">
+                                            <% if($initial_amount !=0 && $initial_amount != $recurring_amount) {%>
+                                              -
+                                            <% } else { %>
+                                              <%= $unit %><br />
+                                            <% } %>
+                                          </td>
+                                          <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">
+                                              $<%= $initial_amount %>
+                                          </td>
+                                        </tr>
+
+                                        <% if ($unicef_charged == true) { %>
+                                        <tr>
+                                            <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">
+                                                Unicef Donation<br />
+                                            </td>
+                                            <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">None</td>
+                                            <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">1 Time</td>
+                                            <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">
+                                                $1
+                                            </td>
+                                        </tr>
+                                        <% } %>
+
+                                        <tr>
+                                            <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">&nbsp;
+
+                                            </td>
+                                            <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">&nbsp;
+
+                                            </td>
+                                            <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" align="right" valign="top">
+                                                Subtotal:<br />
+                                                Tax:<br />
+                                                <strong>TOTAL:</strong><br />
+                                            </td>
+                                            <td style="font-size:14px;font-weight:400; padding: 8px 0 8px 20px;" valign="top">
+                                                $<%= $subtotal %><br />
+                                                $0.00<br />
+                                                <strong>$<%= $total %></strong><br />
                                             </td>
                                         </tr>
                                     </table>
@@ -297,52 +405,28 @@
                         </table>
                     </td>
                 </tr>
+
                 <tr>
-                    <td>
-                        <table width="100%" style="margin-top: 20px;" bgcolor="#FFFFFF">
-                            <tr>
-                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:16px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
-                                    Name: <span style="font-weight:400;"><%= $first_name %> <%= $last_name %></span>
-                                </td>
+                  <td colspan="" rowspan="" headers="" text-align="center">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td class="em_white_link" width="200" valign="middle" align="center" height="80">
+                            <table width="200" style="background-color: #00C19B; color: #fff !important; border-collapse: separate; display: table; border-spacing: 5px;">
+                                <tr style="display: table-row">
+                                    <td style="padding: 5px; display: table-cell">
+                                        <a href="__LOGIN_LINK__" target="_blank" style="font-family:'Open Sans',Arial,sans-serif!important; font-size:16px;font-weight:400;color:#ffffff;text-decoration:none;text-align:center;letter-spacing:2px;color:#ffffff !important;display:block; width:200px;height:30px; text-align: center; line-height: 30px;border-radius:3px;">
+                                            Login Now
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
 
-                            </tr>
-                            <tr style="padding: 16px 0 16px 20px;">
-                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:16px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
-                                    Email: <span style="font-weight:400;"><%= $email %></span>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:16px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
-                                    Ref. Number: <span style="font-weight:400;">0832 - 84 - <%= $member_id %></span>
-                                </td>
-                            </tr>
-
-                            <tr><td>&nbsp;</td></tr>
-
-                            <tr>
-                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:16px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
-                                    Start Date: <span style="font-weight:400;"><%= $date %></span>
-                                </td>
-
-                            </tr>
-                            <tr style="padding: 16px 0 16px 20px;">
-                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:16px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
-                                    Next Billing Date: <span style="font-weight:400;"><%= $trial_period %> @$<%= $recurring_amount %></span>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:16px;font-weight:600;text-align:left;color:#313131;line-height:20px; padding: 4px 0 4px 20px;">
-                                    Membership Type: <span style="font-weight:400;">Premium Membership</span>
-                                </td>
-                            </tr>
-
-                            <tr><td>&nbsp;</td></tr>
-                            <tr><td>&nbsp;</td></tr>
-
-                        </table>
-                    </td>
+                            <br />
+                            <br />
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
                 </tr>
 
                 <tr>
@@ -350,8 +434,7 @@
                         <!-- ===== //BLUE BANNER ===== -->
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr bgcolor="#00C19B">
-                                <td class="em_white_link" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:600;text-align:left;color:#ffffff;line-height:24px; padding: 8px 0 8px 20px; ">
-                                    *Please note that you will not be billed until after your first <%= $trial_period %> days end.
+                                <td class="em_white_link" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:14px;font-weight:600;text-align:left;color:#ffffff;line-height:24px; padding: 20px 0 20px 20px; ">
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>
@@ -405,7 +488,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <td width="80px" valign="top"><img src="http://www.<%= $domain_name %>/images/emails/cs.png" alt="customer support" width="61" height="60" style="display:inline-block;max-width:80px;padding:0px 20px;" border="0" alt="Customer Service">
+                                <td width="80px" valign="top"><img src="<%= $image2 %>" alt="customer support" width="61" height="60" style="display:inline-block;max-width:80px;padding:0px 20px;" border="0" alt="Customer Service">
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>
@@ -423,15 +506,9 @@
 
                             </tr>
                             <tr>
-                            <% if ($days_before_expiration != '' && $days_before_expiration > 0) { %>
                                 <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:12px;text-align:left;color:#313131;line-height:26px;padding-bottom:20px; padding-left:20px;padding-right:20px;">
-                                    Membership details: You are currently signed up to try <%= $site_name %> until <%= $trial_period %>, with no commitments. If you're satisfied with <%= $site_name %> and our services (and honestly, why wouldn't you be?), your membership will be billed automatically at <%= $recurring_amount %> after your trial period ends. If we don't float your boat, don't worry your membership will automatically expire <%= $days_before_expiration %> days after your trial period ends. You can easily switch to a Regular Membership at any time during your trial by visiting <a href="https://support.geeker.com"><span style="color:#00C19B;font-weight:600;text-decoration:none;">Geeker Help Center</a> or by calling us at <%= $concatenated_phone %>. Even if you want to chat, give us a call. Seriously. Make sure to review our <a href="__TERMS_CONDITIONS_LINK__"><span style="color:#00C19B;font-weight:600;text-decoration:none;">Terms &amp; Conditions</span></a> during your trial period so everything is kosher. Thanks and enjoy!
+                                    Membership details: You are currently signed up to try <%= $site_name %> until <%= $membership_expiry_date %>, with no committments. If you're satisfied with <%= $site_name %> and our services (and honestly, why wouldn't you be?), your membership will automatically renew at <%= $recurring_amount %> per month after your trial expires. If we don't float your boat, you can easily switch to a Regular Membership at any time during your trial by visiting <a href="https://support.geeker.com"><span style="color:#00C19B;font-weight:600;text-decoration:none;">Geeker Support</span></a> or by calling us at <%= $concatenated_phone %>. Even if you want to chat, give us a call. Seriously. Make sure to review our <a href="__TERMS_CONDITIONS_LINK__"><span style="color:#00C19B;font-weight:600;text-decoration:none;">Terms &amp; Conditions</span></a> during your trial period so everything is kosher. Thanks and enjoy!
                                 </td>
-                            <% } else { %>
-                                <td class="em_dark_grey_txt" style="font-family:'Open Sans',Arial,sans-serif!important;font-size:12px;text-align:left;color:#313131;line-height:26px;padding-bottom:20px; padding-left:20px;padding-right:20px;">
-                                    Membership details: You are currently signed up to try <%= $site_name %> until <%= $trial_period %>, with no commitments. If you're satisfied with <%= $site_name %> and our services (and honestly, why wouldn't you be?), your membership will automatically renew at <%= $recurring_amount %> per month after your trial expires. If we don't float your boat, you can easily switch to a Regular Membership at any time during your trial by visiting <a href="https://support.geeker.com"><span style="color:#00C19B;font-weight:600;text-decoration:none;">Geeker Support</a> or by calling us at <%= $concatenated_phone %>. Even if you want to chat, give us a call. Seriously. Make sure to review our <a href="__TERMS_CONDITIONS_LINK__"><span style="color:#00C19B;font-weight:600;text-decoration:none;">Terms &amp; Conditions</span></a> during your trial period so everything is kosher. Thanks and enjoy!
-                                </td>
-                            <% } %>
                             </tr>
                             <tr><td>&nbsp;</td></tr>
                         </table>
@@ -452,9 +529,14 @@
                                 <tr>
                                     <td>
                                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                            <td width="32"><a href="https://www.facebook.com/GeekerMedia" target="_blank"><img src="http://www.<%= $domain_name %>/images/emails/fb.png" alt="Facebook" width="32" height="32" style="display:block;" border="0" /></a></td>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td width="78" valign="top">
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td width="32"><a href="https://www.facebook.com/GeekerMedia" target="_blank"><img src="<%= $image3 %>" alt="Facebook" width="32" height="32" style="display:block;" border="0" /></a></td>
                                                             <td>&nbsp;</td>
-                                                            <td width="32"><a href="https://twitter.com/GeekerMedia/" target="_blank"><img src="http://www.<%= $domain_name %>/images/emails/tw.png" alt="Twitter" width="32" height="32" style="display:block;" border="0" /></a></td>
+                                                            <td width="32"><a href="https://twitter.com/GeekerMedia/" target="_blank"><img src="<%= $image4 %>" alt="Twitter" width="32" height="32" style="display:block;" border="0" /></a></td>
                                                         </tr>
                                                     </table>
                                                 </td>

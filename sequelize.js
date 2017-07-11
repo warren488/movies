@@ -1,13 +1,13 @@
+var dbModels = require('./models')
 
-var Sequelize = require("sequelize");
 
-var connection = new Sequelize("data", 'root', 'root');
 
-var Article = connection.define('article', {
-    Title: Sequelize.STRING,
-    Release_Date: Sequelize.DATE,
-    Director: Sequelize.STRING,
-     
-});
 
-connection.sync();
+dbModels.emailTemplate.create({
+    template_name: 'test',
+    template_variation: 'test',
+    template_string: 'test',
+    variables: 'test'
+}).then(function(data){
+    console.log(data)
+})

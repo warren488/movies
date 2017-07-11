@@ -1,7 +1,7 @@
 var fs = require("fs");
 var request = require("request");
 var payload;
-filename = "trial_geeker"
+filename = "./new_templates/lost_password"
 
 
 
@@ -9,7 +9,7 @@ filename = "trial_geeker"
 
 
 
-var writable = fs.createWriteStream("./" + filename + "_stringified.txt");
+var writable = fs.createWriteStream( filename + "_stringified.txt");
 var readable = fs.createReadStream(filename + ".ejs", { encoding: "utf8" })
 
 readable.on("data", function (chunk) {
