@@ -7,13 +7,23 @@ app.set("port", 3000);
 
 
 
-app.listen(app.get("port"), function(){
+app.listen(app.get("port"), function () {
     console.log("connected")
 });
-app.all("/", function(req, res){
+app.all("/", function (req, res) {
     handler.setRes(res)
-    handler.use(200, "warren", "message")
-    handler.handle("warren")
+    handler.use(500, "EONF", "code")
+    handler.use(200, "test", "message.warren.more")
+    handler.handle({
+        "code": "EONF"
+    })
+    handler.handle({
+        "message": {
+            "warren": {
+                "more": "test"
+            }
+        }
+    })
     handler.handle({})
 
 })
