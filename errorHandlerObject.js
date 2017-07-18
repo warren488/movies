@@ -45,21 +45,23 @@ module.exports = function () {
             }
         })
     }
-    _this.use = function (code, message, property) {
+    _this.use = function (code, message, property, returnMessage) {
         //ADD SUPPORT FOR TAKING IN AN OBJECT WITH ALL CONSTRAINTS PRE_DEFINED
         //is arguments an array?
-        if(arguments.length !== 1 || arguments.length !== 3){
-            throw new Error("The use function has 2 constructors which either take 1 or 3 parameters")
-        }
+        // if(Object.keys(arguments).length !== 1 || Object.keys(arguments).length !== 3){
+        //     throw new Error("The use function has 2 constructors which either take 1 or 3 parameters")
+        // }
         
-        if (arguments.length === 1 && typeof code === 'object'){
+        // if (Object.keys(arguments).length === 1 && typeof code === 'object'){
 
-        }
-        else if (property === undefined) {
+        // }
+        // else
+        if (property === undefined) {
 
             _this.errors.push({
                 code: code,
-                text: message
+                text: message,
+                returnMessage: returnMessage || message
             })
         } else if (property === null || (typeof property !== 'string')) {
             throw new TypeError("The property parameter must be a string denoting the property that will be inspected")
@@ -67,7 +69,8 @@ module.exports = function () {
             _this.errors.push({
                 code: code,
                 text: message,
-                property: property
+                property: property,
+                returnMessage: returnMessage || message
             })
         }
     }
