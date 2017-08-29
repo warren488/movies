@@ -5,12 +5,29 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.1",
+    "mail": "^0.2.3",
+    "mysql2": "^1.2.0",
+    "node-statsd": "^0.1.1",
+    "nodemailer": "^4.1.0",
+    "parse5": "^3.0.2",
+    "request": "^2.81.0",
+    "sequelize": "^3.30.4",
+    "statsd-node": "^0.2.3",
+    "xoauth2": "^1.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^8.0.6",
+    "chai": "^3.5.0",
+    "nock": "^9.0.13",
+    "rewire": "^2.5.2",
+    "sinon": "^2.2.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC"
