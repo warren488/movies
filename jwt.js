@@ -15,16 +15,16 @@ connection.sync().then(function(){
     app.get("/auth", function(req, res){
         jwt.sign({
             sub:"auth test",
-            aud:"people",
-            iss:"/auth"
+            aud:"geeker.com",
+            iss:"site generator"
         },"secret",
-        //{ algorithm: 'RS256' },
+        { algorithm: 'HS256' },
         function(err, token){
 
             if(err){
 
             res.statusCode = 401;
-            res.send(err.message)
+            res.send(`${err}`)
 
             }else{
                 res.send(token)

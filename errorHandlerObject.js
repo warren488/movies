@@ -1,5 +1,4 @@
 var Promise = require("bluebird");
-// var res = require("express")().response
 
 module.exports = function () {
     _this = this;
@@ -8,70 +7,95 @@ module.exports = function () {
         _this.res = res
     }
     _this.handle = function (err) {
+        console.log(err)
         //MUST NOW CHECK TO SEE IF THE PROPERTY IS SPECIFIED
         Promise.map(_this.errors, function (error) {
             if (error.property) {
-                var checkee = err;
-                console.log("original:")
-                console.log(checkee)
-                var propertyArray = error.property.split(".")
-                // console.log(propertyArray)
-                Promise.map(propertyArray, function (prop) {
-                    if (checkee) {
-                        checkee = checkee[prop]
-                        console.log(checkee)
-                        return prop;
-                    } else {
-                        return Promise.reject("not this one")
+                if (typeof error.property == 'function') {
+                    if (error.property(err)) {
+                        _this.res.status(error.code).send(error.returnMessage)
                     }
-                }).then(function (propertyArray) {
-                    console.log("checkee:")
-                    console.log(checkee)
-                    console.log("text:")
-                    console.log(error.text)
-                    if (checkee === error.text) {
-                        console.log(`matched ${error.text} with ${error.code}`)
-                        _this.res.status(error.code).send(`matched ${error.text}`)
-                    }
-                }).catch(function (params) {
-                    
-                })
+                } else {
+
+                    var checkee = err;
+                    var propertyArray = error.property.split(".")
+                    // console.log(propertyArray)
+                    Promise.map(propertyArray, function (prop) {
+                        if (checkee) {
+                            checkee = checkee[prop]
+                            return prop;
+                        } else {
+                            return Promise.reject("not this one")
+                        }
+                    }).then(function (propertyArray) {
+                        if (checkee === error.text) {
+                            if (typeof error.returnMessage === 'function') {
+                                var calculatedMessage = error.returnMessage(err)
+                            }else{
+                                var calculatedMessage = error.returnMessage
+                            }
+                            console.log(`matched ${error.text} with ${error.code}`)
+                            _this.res.status(error.code).send(calculatedMessage)
+                        }
+                    }).catch(function (params) {
+
+                    })
+                }
             } else if (err === error.text || err.message === error.text) {
-                _this.res.status(error.code).send(`matched ${error.text}`)
+                _this.res.status(error.code).send(error.returnMessage)
                 console.log(`matched ${error.text} with ${error.code}`)
             } else {
                 console.log("no match found for error:")
                 console.log(err)
             }
         })
+
+        _this.res.status(error.code).send(error.returnMessage)
+
+
     }
     _this.use = function (code, message, property, returnMessage) {
-        //ADD SUPPORT FOR TAKING IN AN OBJECT WITH ALL CONSTRAINTS PRE_DEFINED
-        //is arguments an array?
-        // if(Object.keys(arguments).length !== 1 || Object.keys(arguments).length !== 3){
-        //     throw new Error("The use function has 2 constructors which either take 1 or 3 parameters")
-        // }
-        
-        // if (Object.keys(arguments).length === 1 && typeof code === 'object'){
+        if (Object.keys(arguments).length === 3) {
+            if (property === null || (typeof property !== 'string') || (typeof property !== 'function')) {
+                throw new TypeError("The property parameter must be a string denoting the property that will be inspected")
+            }
 
-        // }
-        // else
-        if (property === undefined) {
-
-            _this.errors.push({
-                code: code,
-                text: message,
-                returnMessage: returnMessage || message
-            })
-        } else if (property === null || (typeof property !== 'string')) {
-            throw new TypeError("The property parameter must be a string denoting the property that will be inspected")
-        } else {
             _this.errors.push({
                 code: code,
                 text: message,
                 property: property,
-                returnMessage: returnMessage || message
+                returnMessage: 'something went wrong'
             })
+        }
+        else if (Object.keys(arguments).length === 4) {
+            console.log(typeof property)
+            if (property === null || !((typeof property !== 'string') || (typeof property !== 'function'))) {
+                throw new TypeError("The property parameter must be a string denoting the property that will be inspected, or a callback function")
+            }
+
+            _this.errors.push({
+                code: code,
+                text: message,
+                property: property,
+                returnMessage: returnMessage
+            })
+        } else if (Object.keys(arguments).length === 1) {
+            if ((typeof arguments[0]) !== "object") {
+                throw new TypeError(`Expected argument of type object. Instead got ${typeof arguments[0]}`)
+            }
+            if (!("code" in arguments[0]) || !("message" in arguments[0]) || !("property" in arguments[0])) {
+                throw new Error("Missing properties in object passed to function constructor")
+            }
+            _this.errors.push({
+                code: arguments[0].code,
+                text: arguments[0].message,
+                property: arguments[0].property,
+                returnMessage: arguments[0].returnMessage || 'something went wrong'
+            })
+            console.log(arguments[0])
+
+        } else {
+            throw new Error("Invalid number of parameters, use expected either 3 or 4 parameters")
         }
     }
 

@@ -1,29 +1,33 @@
-var Handler = require("./errorHandlerObject")
-var handler = new Handler()
+var handler = require("./Test-Services/error")
+
+require("./errorHandlerMiddleware")
 
 var express = require('express');
 var app = express();
-app.set("port", 3000);
+app.set("port", 3001);
 
 
 
 app.listen(app.get("port"), function () {
     console.log("connected")
-});
+}); 
 app.all("/", function (req, res) {
     handler.setRes(res)
-    handler.use(500, "EONF", "code")
-    handler.use(200, "test", "message.warren.more")
     handler.handle({
-        "code": "EONF"
-    })
-    handler.handle({
-        "message": {
-            "warren": {
-                "more": "test"
-            }
+        "new": {
+            "property": "test"
         }
     })
-    handler.handle({})
+    // handler.handle(3434)
+    // handler.handle({
+    //     "code": "EONF"
+    // })
+    // handler.handle({
+    //     "message": {
+    //         "warren": {
+    //             "more": "test"
+    //         }
+    //     }
+    // })
 
 })
